@@ -2,169 +2,116 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Clerigo clerigo = null;
-        Enano enano = null;
-        Elfo elfo = null;
-        Guerrero guerrero = null;
-        Ladron ladron = null;
-        Mago mago = null;
-        Mediano mediano = null;
         Scanner scanner = new Scanner(System.in);
+        CharacterBuilder constructor = new CharacterBuilder();
         int fuerza = (int) (Math.random() * 15) + 3;
+        constructor.setFuerza(fuerza);
         int destreza = (int) (Math.random() * 15) + 3;
+        constructor.setDestreza(destreza);
         int inteligencia = (int) (Math.random() * 15) + 3;
+        constructor.setInteligencia(inteligencia);
         int carisma = (int) (Math.random() * 15) + 3;
+        constructor.setCarisma(carisma);
         int constitucion = (int) (Math.random() * 15) + 3;
+        constructor.setConstitucion(constitucion);
         int sabiduria = (int) (Math.random() * 15) + 3;
+        constructor.setSabiduria(sabiduria);
         int mod_req_princ = (int) (Math.random() * 15) + 3;
-        CharacterBuilder constructor = new CharacterBuilder(fuerza,destreza,inteligencia,carisma,constitucion,sabiduria,mod_req_princ);
-        int cual = 0;
+        constructor.setMod_req_princ(mod_req_princ);
+        String cual ="";
         boolean ok = false;
-        if(inteligencia>=9 && constitucion>=9 && destreza>=9 && ok == false)
+        if(inteligencia>=9 && constitucion>=9 && destreza>=9 && !ok)
         {
             while(!ok)
             {
-                System.out.println("En base a tus modificadores puedes ser:\nClerigo = 1\nEnano = 2\nElfo = 3\nGuerrero = 4\nLadron = 5\nMago = 6\nMediano = 7");
-                cual = Integer.parseInt(scanner.nextLine());
-                if(cual!=1 && cual !=2 && cual !=3 && cual !=4 && cual !=5 && cual !=6 && cual !=7 )
-                    System.out.println("has entrado un valor incorrecto, intentalo de nuevo campeon");
-                else
+                System.out.println("En base a tus modificadores puedes ser:\nClerigo\nEnano\nElfo\nGuerrero\nLadron\nMago\nMediano");
+                cual = scanner.nextLine();
+                if(cual.equals("Clerigo") || cual.equals("Enano") || cual.equals("Elfo") || cual.equals("Guerrero") || cual.equals("Ladron") || cual.equals("Mago") || cual.equals("Mediano") )
                     ok = true;
+                else
+                    System.out.println("has entrado un valor incorrecto, intentalo de nuevo campeon");
             }
         }
-        else if(inteligencia>=9 && constitucion>=9 && destreza<9 && ok == false)
+        else if(inteligencia>=9 && constitucion>=9 && destreza<9 && !ok)
         {
             while(!ok)
             {
-                System.out.println("En base a tus modificadores puedes ser:\nClerigo = 1\nEnano = 2\nElfo = 3\nGuerrero = 4\nLadron = 5\nMago = 6");
-                cual = Integer.parseInt(scanner.nextLine());
-                if(cual!=1 && cual !=2 && cual !=3 && cual !=4 && cual !=5 && cual !=6 )
-                    System.out.println("has entrado un valor incorrecto, intentalo de nuevo campeon");
-                else
+                System.out.println("En base a tus modificadores puedes ser:\nClerigo\nEnano\nElfo\nGuerrero\nLadron\nMago");
+                cual = scanner.nextLine();
+                if(cual.equals("Clerigo") || cual.equals("Enano") || cual.equals("Elfo") || cual.equals("Guerrero") || cual.equals("Ladron") || cual.equals("Mago"))
                     ok = true;
+                else
+                    System.out.println("has entrado un valor incorrecto, intentalo de nuevo campeon");
             }
         }
-        else if(inteligencia<9 && constitucion>=9 && destreza>=9  && ok == false)
+        else if(inteligencia<9 && constitucion>=9 && destreza>=9  && !ok)
         {
             while(!ok)
             {
-                System.out.println("En base a tus modificadores puedes ser:\nClerigo = 1\nEnano = 2\nGuerrero = 4\nLadron = 5\nMago = 6\nMediano = 7");
-                cual = Integer.parseInt(scanner.nextLine());
-                if(cual!=1 && cual !=2 && cual !=4 && cual !=5 && cual !=6 && cual != 7)
-                    System.out.println("has entrado un valor incorrecto, intentalo de nuevo campeon");
-                else
+                System.out.println("En base a tus modificadores puedes ser:\nClerigo\nEnano \nGuerrero\nnLadron\nMago\nMediano");
+                cual = scanner.nextLine();
+                if(cual.equals("Clerigo") || cual.equals("Enano") || cual.equals("Guerrero") || cual.equals("Ladron") || cual.equals("Mago") || cual.equals("Mediano") )
                     ok = true;
+                else
+                    System.out.println("has entrado un valor incorrecto, intentalo de nuevo campeon");
             }
         }
-        else if(inteligencia>=9 && constitucion<9  && ok == false)
+        else if(inteligencia>=9 && constitucion<9  && !ok)
         {
             while(!ok)
             {
-                System.out.println("En base a tus modificadores puedes ser:\nClerigo = 1\nElfo = 3\nGuerrero = 4\nLadron = 5\nMago = 6");
-                cual = Integer.parseInt(scanner.nextLine());
-                if(cual!=1 && cual !=3 && cual !=4 && cual !=5 && cual !=6)
-                    System.out.println("has entrado un valor incorrecto, intentalo de nuevo campeon");
-                else
+                System.out.println("En base a tus modificadores puedes ser:\nClerigo\nElfo\nGuerrero\nLadron\nMago");
+                cual = scanner.nextLine();
+                if(cual.equals("Clerigo") || cual.equals("Elfo") || cual.equals("Guerrero") || cual.equals("Ladron") || cual.equals("Mago"))
                     ok = true;
+                else
+                    System.out.println("has entrado un valor incorrecto, intentalo de nuevo campeon");
             }
         }
-        else if(inteligencia<9 && constitucion>=9 && destreza<9 && ok == false)
+        else if(inteligencia<9 && constitucion>=9 && destreza<9 && !ok)
         {
             while(!ok)
             {
-                System.out.println("En base a tus modificadores puedes ser:\nClerigo = 1\nEnano = 2\nGuerrero = 4\nLadron = 5\nMago = 6");
-                cual = Integer.parseInt(scanner.nextLine());
-                if(cual!=1 && cual !=2 && cual !=4 && cual !=5 && cual !=6)
-                    System.out.println("has entrado un valor incorrecto, intentalo de nuevo campeon");
-                else
+                System.out.println("En base a tus modificadores puedes ser:\nClerigo\nEnano\nGuerrero\nLadron\nMago");
+                cual = scanner.nextLine();
+                if(cual.equals("Clerigo") || cual.equals("Enano") || cual.equals("Guerrero") || cual.equals("Ladron") || cual.equals("Mago"))
                     ok = true;
+                else
+                    System.out.println("has entrado un valor incorrecto, intentalo de nuevo campeon");
             }
         }
-        else if(inteligencia<9 && constitucion<9 && destreza<9 && ok == false)
+        else if(inteligencia<9 && constitucion<9 && destreza<9 && !ok)
         {
             while(!ok)
             {
-                System.out.println("En base a tus modificadores puedes ser:\nClerigo = 1\nGuerrero = 4\nLadron = 5\nMago = 6");
-                cual = Integer.parseInt(scanner.nextLine());
-                if(cual!=1 && cual !=4 && cual !=5 && cual !=6)
-                    System.out.println("has entrado un valor incorrecto, intentalo de nuevo campeon");
-                else
+                System.out.println("En base a tus modificadores puedes ser:\nClerigo\nGuerrero\nLadron\nMago");
+                cual = scanner.nextLine();
+                if(cual.equals("Clerigo") || cual.equals("Guerrero") || cual.equals("Ladron") || cual.equals("Mago"))
                     ok = true;
+                else
+                    System.out.println("has entrado un valor incorrecto, intentalo de nuevo campeon");
             }
         }
-
-        if(cual == 1)
+        ok = false;
+        String alineacion = "";
+        while (!ok)
         {
-            clerigo = (Clerigo) constructor.buildCharacter(cual);
             System.out.println("Que alineacion quieres tener? Legal, Neutral o Caotico?");
-            String alineacion = scanner.nextLine();
-            clerigo.setAlineacion(alineacion);
+            alineacion = scanner.nextLine();
+            if (alineacion.equals("Legal") || alineacion.equals("Neutral") || alineacion.equals("Caotico"))
+                ok = true;
+            else
+                System.out.println("Intenta de nuevo, ha ocurrido un error");
         }
-        else if (cual == 2)
-        {
-            enano = (Enano) constructor.buildCharacter(cual);
-            System.out.println("Que alineacion quieres tener? Legal, Neutral o Caotico?");
-            String alineacion = scanner.nextLine();
-            enano.setAlineacion(alineacion);
-        }
-        else if (cual == 3)
-        {
-            elfo = (Elfo) constructor.buildCharacter(cual);
-            System.out.println("Que alineacion quieres tener? Legal, Neutral o Caotico?");
-            String alineacion = scanner.nextLine();
-            elfo.setAlineacion(alineacion);
-        }
-        else if (cual == 4)
-        {
-            guerrero = (Guerrero) constructor.buildCharacter(cual);
-            System.out.println("Que alineacion quieres tener? Legal, Neutral o Caotico?");
-            String alineacion = scanner.nextLine();
-            guerrero.setAlineacion(alineacion);
-        }
-        else if (cual == 5)
-        {
-            ladron = (Ladron) constructor.buildCharacter(cual);
-            System.out.println("Que alineacion quieres tener? Legal, Neutral o Caotico?");
-            String alineacion = scanner.nextLine();
-            ladron.setAlineacion(alineacion);
-        }
-        else if (cual == 6)
-        {
-            mago = (Mago) constructor.buildCharacter(cual);
-            System.out.println("Que alineacion quieres tener? Legal, Neutral o Caotico?");
-            String alineacion = scanner.nextLine();
-            mago.setAlineacion(alineacion);
-        }
-        else if (cual == 7)
-        {
-            mediano = (Mediano) constructor.buildCharacter(cual);
-            System.out.println("Que alineacion quieres tener? Legal, Neutral o Caotico?");
-            String alineacion = scanner.nextLine();
-            mediano.setAlineacion(alineacion);
-        }
-        else if (cual == 0)
-            System.out.println("ERROR, no ha entrado bien el valor");
+        constructor.setAlineacion(alineacion);
 
+        Characters character = constructor.buildCharacter(cual);
+        //Aixo es per fer un Casting, que crea un Clerig o a partir del character que ja tens.
+//        Clerigo clerigo = (Clerigo) character;
+//        clerigo.PonCosa();
+        int j = 1;
 
-
-
-
-
-        //ATENCIO AQUESTA PART ES NOMES PER TESTEJAR, NO FORMA PART DEL CODI FINAL
-        if(cual == 1)
-            clerigo.MostrarPorConsola();
-        else if (cual == 2)
-            enano.MostrarPorConsola();
-        else if (cual == 3)
-            elfo.MostrarPorConsola();
-        else if (cual == 4)
-            guerrero.MostrarPorConsola();
-        else if (cual == 5)
-            ladron.MostrarPorConsola();
-        else if (cual == 6)
-            mago.MostrarPorConsola();
-        else if (cual == 7)
-            mediano.MostrarPorConsola();
+        character.MostrarPorConsola();
 
 
     }
