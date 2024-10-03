@@ -1,13 +1,24 @@
 public abstract class Characters {
-    int fuerza;
-    int destreza;
-    int inteligencia;
-    int carisma;
-    int constitucion;
-    int sabiduria;
-    int mod_req_princ;
-    String tipo;
-    String alineacion;
+    protected int fuerza;
+    protected int destreza;
+    protected int inteligencia;
+    protected int carisma;
+    protected int constitucion;
+    protected int sabiduria;
+    protected int mod_req_princ;
+    protected String tipo;
+    protected String alineacion;
+
+    public Characters(int _fuerza, int _destreza, int _inteligencia, int _carisma, int _constitucion, int _sabiduria, int _mod_req_princ,String _alineacion) {
+        this.fuerza=_fuerza;
+        this.destreza=_destreza;
+        this.inteligencia=_inteligencia;
+        this.carisma=_carisma;
+        this.constitucion=_constitucion;
+        this.sabiduria=_sabiduria;
+        this.mod_req_princ=_mod_req_princ;
+        this.alineacion=_alineacion;
+    }
 
     public int getFuerza() {
         return fuerza;
