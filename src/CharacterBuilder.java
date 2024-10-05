@@ -7,6 +7,9 @@ public class CharacterBuilder implements CharacterBuilderInt{
     private int sabiduria;
     private int mod_req_princ;
     private String alineacion;
+    private int ataque;
+    private int golpe;
+
 
 
     public CharacterBuilder() {}
@@ -50,23 +53,28 @@ public class CharacterBuilder implements CharacterBuilderInt{
         this.mod_req_princ = mod_req_princ;
     }
 
+    public void setAtaque(int ataque) {this.ataque = ataque;}
+
+    public void setGolpe(int golpe) {this.golpe = golpe;}
+
+
     @Override
     public Characters buildCharacter(String tipo){
         switch (tipo){
             case "Clerigo":
-                return new Clerigo(fuerza,destreza,inteligencia,carisma,constitucion,sabiduria,mod_req_princ,alineacion);
+                return new Clerigo(fuerza,destreza,inteligencia,carisma,constitucion,sabiduria,mod_req_princ,alineacion,ataque,golpe);
             case "Enano":
-                return new Enano(fuerza,destreza,inteligencia,carisma,constitucion,sabiduria,mod_req_princ,alineacion);
+                return new Enano(fuerza,destreza,inteligencia,carisma,constitucion,sabiduria,mod_req_princ,alineacion,ataque,golpe);
             case "Elfo":
-                return new Elfo(fuerza,destreza,inteligencia,carisma,constitucion,sabiduria,mod_req_princ,alineacion);
+                return new Elfo(fuerza,destreza,inteligencia,carisma,constitucion,sabiduria,mod_req_princ,alineacion,ataque,golpe);
             case "Guerrero":
-                return new Guerrero(fuerza,destreza,inteligencia,carisma,constitucion,sabiduria,mod_req_princ,alineacion);
+                return new Guerrero(fuerza,destreza,inteligencia,carisma,constitucion,sabiduria,mod_req_princ,alineacion,ataque,golpe);
             case "Ladron":
-                return  new Ladron(fuerza,destreza,inteligencia,carisma,constitucion,sabiduria,mod_req_princ,alineacion);
+                return  new Ladron(fuerza,destreza,inteligencia,carisma,constitucion,sabiduria,mod_req_princ,alineacion,ataque,golpe);
             case "Mago":
-                return new Mago(fuerza,destreza,inteligencia,carisma,constitucion,sabiduria,mod_req_princ,alineacion);
+                return new Mago(fuerza,destreza,inteligencia,carisma,constitucion,sabiduria,mod_req_princ,alineacion,ataque,golpe);
             case "Mediano":
-                return new Mediano(fuerza,destreza,inteligencia,carisma,constitucion,sabiduria,mod_req_princ,alineacion);
+                return new Mediano(fuerza,destreza,inteligencia,carisma,constitucion,sabiduria,mod_req_princ,alineacion,ataque,golpe);
             default:
                 return null;
         }

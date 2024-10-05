@@ -6,5 +6,8 @@ public interface CharacterBuilderInt {
     void setCarisma(int carisma);
     void setConstitucion(int constitucion);
     void setSabiduria(int sabid);
+    void setAtaque(int ataque);
+    void setGolpe(int golpe);
+
     Characters buildCharacter(String tipo);
 }
