@@ -11,7 +11,7 @@ public class Clerigo extends Characters{
         super.ataque_aliento=16;
         super.hechizos_varas_bastones=15;
     }
-    public void PonCosa(){
+    public void PonCosaCler(){
         System.out.println("HOLA SOY UN CLERIGO");
     }
 }

@@ -129,5 +129,95 @@ public abstract class Characters {
         System.out.println("Tu golpe es: "+this.golpe);
         System.out.println("Eres nivel 1. Tus tiradas de salvación son: M-" + this.muerte_veneno + ", V-" + this.varitas + ", P-" + this.paralisis_petrificacion + ", A-" + this.ataque_aliento + ", H-" + this.hechizos_varas_bastones);
     }
+
+    public void DimeImpacto(int atac){
+        switch (atac) {
+            case 1, 2, 3, 4, 5, 6, 7, 8, 9:
+                System.out.println("No puedes impactar a nadie");
+                break;
+            case 10:
+                System.out.println("Puedes impactar a enemigo con clase de armadura 9 o >");
+                break;
+            case 11:
+                System.out.println("Puedes impactar a enemigo con clase de armadura 8 o >");
+                break;
+            case 12:
+                System.out.println("Puedes impactar a enemigo con clase de armadura 7 o >");
+                break;
+            case 13:
+                System.out.println("Puedes impactar a enemigo con clase de armadura 6 o >");
+                break;
+            case 14:
+                System.out.println("Puedes impactar a enemigo con clase de armadura 5 o >");
+                break;
+            case 15:
+                System.out.println("Puedes impactar a enemigo con clase de armadura 4 o >");
+                break;
+            case 16:
+                System.out.println("Puedes impactar a enemigo con clase de armadura 3 o >");
+                break;
+            case 17:
+                System.out.println("Puedes impactar a enemigo con clase de armadura 2 o >");
+                break;
+            case 18:
+                System.out.println("Puedes impactar a enemigo con clase de armadura 1 o >");
+                break;
+            case 19:
+                System.out.println("Puedes impactar a enemigo con clase de armadura 0 o >");
+                break;
+            case 20:
+                System.out.println("Puedes impactar a cualquier enemigo");
+                break;
+
+        }
+
+    }
+
+    public static int CalcularGolpe(String tipo, int con){
+        int golpe=0;
+        boolean ok = false;
+        while (!ok){
+            //Uso de dados apropiados segun la clase
+            switch (tipo){
+                case "Clerigo","Elfo","Mediano":
+                    golpe = (int) (Math.random() * 6) + 1;
+                    break;
+                case "Enano", "Guerrero":
+                    golpe = (int) (Math.random() * 8) + 1;
+                    break;
+                case "Ladron","Mago":
+                    golpe = (int) (Math.random() * 4) + 1;
+                    break;
+
+            }
+            //Regla opcional, repetir si sale 1/2 en caso de nivel 1
+            if (golpe>2)
+                ok=true;
+        }
+
+        //Aplicacion de modificadores por constitucion
+        switch (con) {
+            case 3:
+                golpe = golpe - 3;
+                break;
+            case 4,5:
+                golpe = golpe - 2;
+                break;
+            case 6,7,8:
+                golpe = golpe - 1;
+                break;
+            case 13,14,15:
+                golpe = golpe + 1;
+                break;
+            case 16,17:
+                golpe = golpe + 2;
+                break;
+            case 18:
+                golpe = golpe + 3;
+                break;
+
+        }
+        return golpe;
+    }
 }
 
